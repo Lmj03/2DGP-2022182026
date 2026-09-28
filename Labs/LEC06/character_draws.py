@@ -57,8 +57,8 @@ def move_rectangle():
 
 def move_triangle():
     draw_leftdia()
-    draw_bottomline()
     draw_rightdia()
+    draw_bottomline()
     pass
 
 while True:
