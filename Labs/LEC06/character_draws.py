@@ -6,12 +6,16 @@ open_canvas(800, 600)
 character = load_image('character.png')
 
 def draw_top():
+    print('top')
     pass
 def draw_left():
+    print('left')
     pass
 def draw_bottom():
+    print('bottom')
     pass
 def draw_right():
+    print('right') 
     pass
 
 def move_circle():
