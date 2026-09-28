@@ -37,8 +37,9 @@ def draw_bottomline():
     pass
 
 def draw_rightdia():
-    print("rightdia")
-    pass
+    for x in range(400, 750, 5):
+        y = 500 - (x - 400) * (500 / 350)
+        draw_character(x, y)
 
 def move_circle():
    for degree in range(360):
