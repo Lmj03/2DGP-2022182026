@@ -27,6 +27,15 @@ def draw_right():
     for y in range(50, 550, 5):
         draw_character(750, y)
 
+def draw_leftdia():
+    pass
+
+def draw_bottomline():
+    pass
+
+def draw_rightdia():
+    pass
+
 def move_circle():
    for degree in range(360):
         theta = math.radians(degree)
@@ -43,7 +52,9 @@ def move_rectangle():
     pass
 
 def move_triangle():
-    print('triangle')
+    draw_leftdia()
+    draw_bottomline()
+    draw_rightdia()
     pass
 
 while True:
