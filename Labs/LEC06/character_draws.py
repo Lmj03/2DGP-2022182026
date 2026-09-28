@@ -63,8 +63,8 @@ def move_triangle():
     draw_bottomline()
 
 while True:
-    # move_circle()
-    # move_rectangle()
+    move_circle()
+    move_rectangle()
     move_triangle()
 
 close_canvas()
