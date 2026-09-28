@@ -28,7 +28,8 @@ def draw_right():
         draw_character(750, y)
 
 def draw_leftdia():
-    for x in range(50, 400, 5):
+    for offset in range(0, 350, 5):
+        x = min(50 + offset, 400)
         y = 50 + (x - 50) * (500 / 350)
         draw_character(x, y)
 
@@ -37,8 +38,9 @@ def draw_bottomline():
         draw_character(x, 50)
 
 def draw_rightdia():
-    for x in range(400, 700, 5):
-        y = 500 - (x - 400) * (500 / 350)
+    for offset in range(0, 300, 5):
+        x = 400 + offset
+        y = 550 - (x - 400) * (500 / 300)
         draw_character(x, y)
 
 def move_circle():
