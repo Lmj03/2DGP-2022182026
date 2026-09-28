@@ -28,8 +28,9 @@ def draw_right():
         draw_character(750, y)
 
 def draw_leftdia():
-    print("leftdia")
-    pass
+    for x in range(50, 400, 5):
+        y = 50 + (x - 50) * (500 / 350)
+        draw_character(x, y)
 
 def draw_bottomline():
     print("bottomline")
