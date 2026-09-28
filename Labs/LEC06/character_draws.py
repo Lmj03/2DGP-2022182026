@@ -54,18 +54,15 @@ def move_rectangle():
     draw_left()
     draw_bottom()
     draw_right()
-    pass
 
 def move_triangle():
     draw_leftdia()
     draw_rightdia()
     draw_bottomline()
-    pass
 
 while True:
     # move_circle()
     # move_rectangle()
     move_triangle()
-    pass
 
 close_canvas()
