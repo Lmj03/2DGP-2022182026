@@ -18,11 +18,10 @@ def draw_top():
 def draw_left():
     for y in range(550, 50, -5):
         draw_character(50, y)
-    pass
         
 def draw_bottom():
-    print('bottom')
-    pass
+    for x in range(50, 750, 5):
+        draw_character(x, 50)
 
 def draw_right():
     print('right')
