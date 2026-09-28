@@ -28,12 +28,15 @@ def draw_right():
         draw_character(750, y)
 
 def draw_leftdia():
+    print("leftdia")
     pass
 
 def draw_bottomline():
+    print("bottomline")
     pass
 
 def draw_rightdia():
+    print("rightdia")
     pass
 
 def move_circle():
