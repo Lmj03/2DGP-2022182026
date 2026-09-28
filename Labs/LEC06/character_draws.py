@@ -33,15 +33,19 @@ def draw_leftdia():
         y = 50 + (x - 50) * (500 / 350)
         draw_character(x, y)
 
+    print(x, y)
+
 def draw_bottomline():
     for x in range(700, 50, -5):
         draw_character(x, 50)
+    print(x)
 
 def draw_rightdia():
     for offset in range(0, 300, 5):
         x = 400 + offset
         y = 550 - (x - 400) * (500 / 300)
         draw_character(x, y)
+    print(x, y)
 
 def move_circle():
    for degree in range(360):
@@ -63,8 +67,8 @@ def move_triangle():
     draw_bottomline()
 
 while True:
-    move_circle()
-    move_rectangle()
+    # move_circle()
+    # move_rectangle()
     move_triangle()
 
 close_canvas()
