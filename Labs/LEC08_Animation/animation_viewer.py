@@ -13,7 +13,7 @@ Attack_Sprites_cordinate = [
     (1052, 48, 158, 116),
     (1295, 48, 130, 114),
     (1512, 47, 104, 118),
-    (1700, 48, 88, 118),
+    (1700, 48, 88, 118)
 ]
 
 Roll_Sprites_cordinate = [
@@ -21,7 +21,17 @@ Roll_Sprites_cordinate = [
     (218, 278, 114, 75),
     (395, 278, 89, 100),
     (548, 278, 94, 84),
-    (710, 278, 100, 78),
+    (710, 278, 100, 78)
+]
+
+Jump_Sprites_cordinate = [
+    (52, 447, 96, 98),
+    (227, 448, 87, 134),
+    (389, 466, 82, 154),
+    (542, 484, 84, 106),
+    (702, 467, 106, 125),
+    (884, 448, 102, 87),
+    (1068, 448, 74, 139)
 ]
 
 def Playing_Ani(frame, Sprites_cordinate):
@@ -43,7 +53,11 @@ def Attack_Ani():
 def Roll_Ani():
     Playing_Ani(5, Roll_Sprites_cordinate)
 
+def Jump_Ani():
+    pass
+
 while True:
-    Attack_Ani()
+    # Attack_Ani()
     # Roll_Ani()
+    Jump_Ani()
     pass
