@@ -54,7 +54,7 @@ def Roll_Ani():
     Playing_Ani(5, Roll_Sprites_cordinate)
 
 def Jump_Ani():
-    pass
+    Playing_Ani(7, Jump_Sprites_cordinate)
 
 while True:
     # Attack_Ani()
