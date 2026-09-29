@@ -34,7 +34,7 @@ Jump_Sprites_cordinate = [
     (1068, 448, 74, 139)
 ]
 
-def Playing_Ani(frame, Sprites_cordinate):
+def Playing_Ani(frame, Sprites_cordinate, delay_time):
     for i in range(frame):
         clear_canvas()
         character.clip_draw(
@@ -43,18 +43,18 @@ def Playing_Ani(frame, Sprites_cordinate):
             400, 300
         )
         update_canvas()
-        delay(0.1)
+        delay(delay_time)
     
 
 def Attack_Ani():
-    Playing_Ani(9, Attack_Sprites_cordinate)
+    Playing_Ani(9, Attack_Sprites_cordinate, 0.1)
 
 
 def Roll_Ani():
-    Playing_Ani(5, Roll_Sprites_cordinate)
+    Playing_Ani(5, Roll_Sprites_cordinate, 0.1)
 
 def Jump_Ani():
-    Playing_Ani(7, Jump_Sprites_cordinate)
+    Playing_Ani(7, Jump_Sprites_cordinate, 0.2)
 
 while True:
     # Attack_Ani()
