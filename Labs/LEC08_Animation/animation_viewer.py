@@ -37,7 +37,15 @@ def Attack_Ani():
 
 
 def Roll_Ani():
-    pass
+    for frame in range(5):
+        clear_canvas()
+        character.clip_draw(
+            Roll_Sprites_cordinate[frame][0], Roll_Sprites_cordinate[frame][1], 
+            Roll_Sprites_cordinate[frame][2], Roll_Sprites_cordinate[frame][3], 
+            400, 300
+        )
+        update_canvas()
+        delay(0.1)
 
 while True:
     # Attack_Ani()
