@@ -58,13 +58,16 @@ def Playing_Ani(frame, Sprites_cordinate, delay_time):
     count = 0
     for count in range(5):
         for i in range(frame):
-          clear_canvas()
-          character.clip_draw(
+            clear_canvas()
+            character.clip_draw(
               Sprites_cordinate[i][0], Sprites_cordinate[i][1], 
               Sprites_cordinate[i][2], Sprites_cordinate[i][3], 
               400, 300)
-          update_canvas()
-          delay(delay_time)
+            update_canvas()
+            delay(delay_time)
+    
+    delay(1)
+    
     
 
 def Attack_Ani():
