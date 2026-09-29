@@ -24,30 +24,26 @@ Roll_Sprites_cordinate = [
     (710, 278, 100, 78),
 ]
 
-def Attack_Ani():
-    for frame in range(9):
+def Playing_Ani(frame, Sprites_cordinate):
+    for i in range(frame):
         clear_canvas()
         character.clip_draw(
-            Attack_Sprites_cordinate[frame][0], Attack_Sprites_cordinate[frame][1], 
-            Attack_Sprites_cordinate[frame][2], Attack_Sprites_cordinate[frame][3], 
+            Sprites_cordinate[i][0], Sprites_cordinate[i][1], 
+            Sprites_cordinate[i][2], Sprites_cordinate[i][3], 
             400, 300
         )
         update_canvas()
         delay(0.1)
+    
+
+def Attack_Ani():
+    Playing_Ani(9, Attack_Sprites_cordinate)
 
 
 def Roll_Ani():
-    for frame in range(5):
-        clear_canvas()
-        character.clip_draw(
-            Roll_Sprites_cordinate[frame][0], Roll_Sprites_cordinate[frame][1], 
-            Roll_Sprites_cordinate[frame][2], Roll_Sprites_cordinate[frame][3], 
-            400, 300
-        )
-        update_canvas()
-        delay(0.1)
+    Playing_Ani(5, Roll_Sprites_cordinate)
 
 while True:
-    # Attack_Ani()
-    Roll_Ani()
+    Attack_Ani()
+    # Roll_Ani()
     pass
