@@ -20,12 +20,12 @@ def Attack_Ani():
     for frame in range(9):
         clear_canvas()
         character.clip_draw(
-            frame * 180, 50, 
-            150, 150, 
-            350, 300
+            Attack_Sprites_cordinate[frame][0], Attack_Sprites_cordinate[frame][1], 
+            Attack_Sprites_cordinate[frame][2], Attack_Sprites_cordinate[frame][3], 
+            400, 300
         )
         update_canvas()
-        delay(0.5)
+        delay(0.1)
 
 while True:
     Attack_Ani()
