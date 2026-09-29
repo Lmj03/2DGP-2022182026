@@ -34,6 +34,17 @@ Jump_Sprites_cordinate = [
     (1068, 448, 74, 139)
 ]
 
+Run_Sprites_cordinate = [
+    (52, 698, 104, 128),
+    (225, 699, 121, 118),
+    (407, 698, 114, 128),
+    (585, 698, 119, 125),
+    (762, 698, 126, 110),
+    (948, 698, 114, 126),
+    (1125, 699, 120, 125),
+    (1308, 699, 115, 124)
+]
+
 def Playing_Ani(frame, Sprites_cordinate, delay_time):
     for i in range(frame):
         clear_canvas()
@@ -56,8 +67,11 @@ def Roll_Ani():
 def Jump_Ani():
     Playing_Ani(7, Jump_Sprites_cordinate, 0.2)
 
+def Run_Ani():
+    pass
 while True:
     # Attack_Ani()
     # Roll_Ani()
-    Jump_Ani()
+    # Jump_Ani()
+    Run_Ani()
     pass
