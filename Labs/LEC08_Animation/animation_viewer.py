@@ -4,6 +4,18 @@ from pico2d import *
 open_canvas()
 character = load_image('Project_Spritesheet.png')
 
+Attack_Sprites_cordinate = [
+    (60, 48, 89, 118),
+    (234, 48, 103, 115),
+    (415, 48, 98, 118),
+    (615, 48, 108, 115),
+    (840, 48, 120, 116),
+    (1052, 48, 158, 116),
+    (1295, 48, 130, 114),
+    (1512, 47, 104, 118),
+    (1700, 48, 88, 118),
+]
+
 def Attack_Ani():
     for frame in range(9):
         clear_canvas()
