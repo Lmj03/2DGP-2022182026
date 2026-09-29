@@ -60,7 +60,6 @@ def Playing_Ani(frame, Sprites_cordinate, delay_time):
 def Attack_Ani():
     Playing_Ani(9, Attack_Sprites_cordinate, 0.1)
 
-
 def Roll_Ani():
     Playing_Ani(5, Roll_Sprites_cordinate, 0.1)
 
@@ -70,9 +69,13 @@ def Jump_Ani():
 def Run_Ani():
     Playing_Ani(8, Run_Sprites_cordinate, 0.1)
     
+def walk_Ani():
+    pass
+    
 while True:
     # Attack_Ani()
     # Roll_Ani()
     # Jump_Ani()
-    Run_Ani()
+    # Run_Ani()
+    walk_Ani()
     pass
