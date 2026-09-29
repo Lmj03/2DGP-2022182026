@@ -16,6 +16,14 @@ Attack_Sprites_cordinate = [
     (1700, 48, 88, 118),
 ]
 
+Roll_Sprites_cordinate = [
+    (47, 278, 104, 81),
+    (218, 278, 114, 75),
+    (395, 278, 89, 100),
+    (548, 278, 94, 84),
+    (710, 278, 100, 78),
+]
+
 def Attack_Ani():
     for frame in range(9):
         clear_canvas()
@@ -27,6 +35,11 @@ def Attack_Ani():
         update_canvas()
         delay(0.1)
 
+
+def Roll_Ani():
+    pass
+
 while True:
-    Attack_Ani()
+    # Attack_Ani()
+    Roll_Ani()
     pass
