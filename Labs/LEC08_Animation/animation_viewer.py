@@ -79,7 +79,7 @@ def Run_Ani():
     Playing_Ani(8, Run_Sprites_cordinate, 0.1)
     
 def walk_Ani():
-    pass
+    Playing_Ani(6, Walk_Sprites_cordinate, 0.1)
     
 while True:
     # Attack_Ani()
