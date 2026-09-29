@@ -45,6 +45,15 @@ Run_Sprites_cordinate = [
     (1320, 697, 88,  123)
 ]
 
+Walk_Sprites_cordinate = [
+    (64, 878, 80, 126),
+    (243, 878, 82, 127),
+    (425, 878, 79, 127),
+    (603, 878, 82, 127),
+    (784, 878, 82, 128),
+    (964, 878, 82, 127)
+]
+
 def Playing_Ani(frame, Sprites_cordinate, delay_time):
     for i in range(frame):
         clear_canvas()
