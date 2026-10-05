@@ -104,20 +104,21 @@ def window_was_closed() -> bool:
     return any(event.type == SDL_QUIT for event in get_events())
 
 
-def play_animation_once(sprite_sheet, animation: Animation) -> bool:
-    for frame in animation.frames:
+def play_animation_once(sprite_sheet, animation: Animation, repeat_index: int) -> bool:
+    for frame_index, frame in enumerate(animation.frames):
         if window_was_closed():
             return False
         clear_canvas()
-        draw_frame(sprite_sheet, frame)
+        x_position = frame_x_position(animation, repeat_index, frame_index)
+        draw_frame(sprite_sheet, frame, x_position)
         update_canvas()
         delay(animation.frame_delay)
     return True
 
 
 def play_animation(sprite_sheet, animation: Animation) -> bool:
-    for _ in range(animation.repeat_count):
-        if not play_animation_once(sprite_sheet, animation):
+    for repeat_index in range(animation.repeat_count):
+        if not play_animation_once(sprite_sheet, animation, repeat_index):
             return False
     delay(ANIMATION_PAUSE)
     return True
