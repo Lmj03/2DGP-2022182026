@@ -2,7 +2,7 @@
 
 from pathlib import Path
 
-from pico2d import close_canvas, open_canvas
+from pico2d import close_canvas, load_image, open_canvas
 
 
 SCREEN_WIDTH = 1200
@@ -12,6 +12,7 @@ SPRITE_PATH = Path(__file__).resolve().with_name("sonic-sprite.png")
 
 def main():
     open_canvas(SCREEN_WIDTH, SCREEN_HEIGHT)
+    sprite_sheet = load_image(str(SPRITE_PATH))
     close_canvas()
 
 
