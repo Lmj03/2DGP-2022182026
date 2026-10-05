@@ -125,7 +125,17 @@ walk_animation = Animation(
     0.12,
 )
 
-ANIMATIONS: tuple[Animation, ...] = (run_animation, action_animation, jump_animation, spin_animation, roll_animation, attack_animation, slide_animation, fall_animation, walk_animation)
+special_animation = Animation(
+    "특수 동작",
+    make_row_frames(
+        426,
+        43,
+        ((6, 39), (49, 82), (96, 118), (125, 147)),
+    ),
+    0.15,
+)
+
+ANIMATIONS: tuple[Animation, ...] = (run_animation, action_animation, jump_animation, spin_animation, roll_animation, attack_animation, slide_animation, fall_animation, walk_animation, special_animation)
 
 
 def main():
