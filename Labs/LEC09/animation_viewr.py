@@ -77,6 +77,15 @@ def validate_animations(animations: tuple[Animation, ...]) -> None:
     for animation in animations:
         if not animation.frames:
             raise ValueError(f"프레임이 비어 있는 동작입니다: {animation.name}")
+        has_start = animation.movement_start_x is not None
+        has_end = animation.movement_end_x is not None
+        if has_start != has_end:
+            raise ValueError(f"이동 시작·종료 위치가 모두 필요합니다: {animation.name}")
+        if has_start and has_end:
+            widest_frame = max(frame.width for frame in animation.frames) * DISPLAY_SCALE
+            half_width = widest_frame // 2
+            if animation.movement_start_x < half_width or animation.movement_end_x > SCREEN_WIDTH - half_width:
+                raise ValueError(f"이동 위치가 화면 경계를 벗어납니다: {animation.name}")
         for frame in animation.frames:
             if frame.width <= 0 or frame.height <= 0:
                 raise ValueError(f"프레임 크기가 잘못되었습니다: {animation.name}")
