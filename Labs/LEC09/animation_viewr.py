@@ -12,11 +12,12 @@ SPRITE_PATH = Path(__file__).resolve().with_name("sonic-sprite.png")
 
 def main():
     open_canvas(SCREEN_WIDTH, SCREEN_HEIGHT)
-    if not SPRITE_PATH.is_file():
+    try:
+        if not SPRITE_PATH.is_file():
+            raise FileNotFoundError(f"스프라이트 이미지를 찾을 수 없습니다: {SPRITE_PATH}")
+        sprite_sheet = load_image(str(SPRITE_PATH))
+    finally:
         close_canvas()
-        raise FileNotFoundError(f"스프라이트 이미지를 찾을 수 없습니다: {SPRITE_PATH}")
-    sprite_sheet = load_image(str(SPRITE_PATH))
-    close_canvas()
 
 
 if __name__ == "__main__":
