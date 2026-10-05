@@ -45,7 +45,17 @@ run_animation = Animation(
     0.1,
 )
 
-ANIMATIONS: tuple[Animation, ...] = (run_animation,)
+action_animation = Animation(
+    "동작",
+    make_row_frames(
+        79,
+        39,
+        ((8, 33), (37, 63), (65, 95), (97, 133), (135, 166), (170, 201), (206, 231), (238, 261), (263, 292), (295, 330), (334, 365), (370, 398)),
+    ),
+    0.1,
+)
+
+ANIMATIONS: tuple[Animation, ...] = (run_animation, action_animation)
 
 
 def main():
