@@ -9,6 +9,7 @@ from pico2d import close_canvas, load_image, open_canvas
 SCREEN_WIDTH = 1200
 SCREEN_HEIGHT = 800
 SPRITE_PATH = Path(__file__).resolve().with_name("sonic-sprite.png")
+SPRITE_HEIGHT = 525
 
 
 @dataclass(frozen=True)
@@ -25,6 +26,26 @@ class Animation:
     frames: tuple[Frame, ...]
     frame_delay: float
     repeat_count: int = 5
+
+
+def make_row_frames(top: int, height: int, spans: tuple[tuple[int, int], ...]) -> tuple[Frame, ...]:
+    return tuple(
+        Frame(left, top, right - left + 1, height)
+        for left, right in spans
+    )
+
+
+run_animation = Animation(
+    "달리기",
+    make_row_frames(
+        39,
+        39,
+        ((1, 29), (31, 56), (58, 86), (88, 115), (118, 147), (150, 179), (182, 210), (213, 241), (244, 268), (270, 293), (302, 330)),
+    ),
+    0.1,
+)
+
+ANIMATIONS: tuple[Animation, ...] = (run_animation,)
 
 
 def main():
