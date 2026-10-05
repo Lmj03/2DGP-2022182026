@@ -166,6 +166,8 @@ roll_animation = Animation(
         ((1, 30), (36, 64), (70, 98), (105, 133), (139, 167), (174, 202)),
     ),
     0.1,
+    movement_start_x=MOVEMENT_START_X,
+    movement_end_x=MOVEMENT_END_X,
 )
 
 attack_animation = Animation(
