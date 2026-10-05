@@ -56,6 +56,14 @@ def draw_frame(sprite_sheet, frame: Frame) -> None:
     )
 
 
+def play_animation_once(sprite_sheet, animation: Animation) -> None:
+    for frame in animation.frames:
+        clear_canvas()
+        draw_frame(sprite_sheet, frame)
+        update_canvas()
+        delay(animation.frame_delay)
+
+
 run_animation = Animation(
     "달리기",
     make_row_frames(
