@@ -64,6 +64,12 @@ def play_animation_once(sprite_sheet, animation: Animation) -> None:
         delay(animation.frame_delay)
 
 
+def play_animation(sprite_sheet, animation: Animation) -> None:
+    for _ in range(animation.repeat_count):
+        play_animation_once(sprite_sheet, animation)
+    delay(ANIMATION_PAUSE)
+
+
 run_animation = Animation(
     "달리기",
     make_row_frames(
