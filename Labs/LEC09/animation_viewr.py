@@ -124,6 +124,8 @@ run_animation = Animation(
         ((1, 29), (31, 56), (58, 86), (88, 115), (118, 147), (150, 179), (182, 210), (213, 241), (244, 268), (270, 293), (302, 330)),
     ),
     0.1,
+    movement_start_x=MOVEMENT_START_X,
+    movement_end_x=MOVEMENT_END_X,
 )
 
 action_animation = Animation(
