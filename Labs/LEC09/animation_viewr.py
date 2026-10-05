@@ -95,7 +95,17 @@ attack_animation = Animation(
     0.1,
 )
 
-ANIMATIONS: tuple[Animation, ...] = (run_animation, action_animation, jump_animation, spin_animation, roll_animation, attack_animation)
+slide_animation = Animation(
+    "미끄러지기",
+    make_row_frames(
+        283,
+        35,
+        ((1, 29), (36, 65), (72, 110), (123, 161), (172, 210), (218, 255)),
+    ),
+    0.1,
+)
+
+ANIMATIONS: tuple[Animation, ...] = (run_animation, action_animation, jump_animation, spin_animation, roll_animation, attack_animation, slide_animation)
 
 
 def main():
