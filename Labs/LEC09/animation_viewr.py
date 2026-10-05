@@ -56,6 +56,20 @@ def source_rectangle(frame: Frame) -> tuple[int, int, int, int]:
     return frame.left, bottom, frame.width, frame.height
 
 
+def frame_x_position(animation: Animation, repeat_index: int, frame_index: int) -> int:
+    if animation.movement_start_x is None or animation.movement_end_x is None:
+        return SCREEN_WIDTH // 2
+
+    total_frames = animation.repeat_count * len(animation.frames)
+    current_frame = repeat_index * len(animation.frames) + frame_index
+    if total_frames <= 1:
+        return animation.movement_start_x
+
+    progress = current_frame / (total_frames - 1)
+    distance = animation.movement_end_x - animation.movement_start_x
+    return round(animation.movement_start_x + distance * progress)
+
+
 def validate_animations(animations: tuple[Animation, ...]) -> None:
     if not animations:
         raise ValueError("등록된 애니메이션이 없습니다.")
@@ -72,14 +86,14 @@ def validate_animations(animations: tuple[Animation, ...]) -> None:
                 raise ValueError(f"프레임이 이미지 영역을 벗어났습니다: {animation.name}")
 
 
-def draw_frame(sprite_sheet, frame: Frame) -> None:
+def draw_frame(sprite_sheet, frame: Frame, x_position: int = SCREEN_WIDTH // 2) -> None:
     left, bottom, width, height = source_rectangle(frame)
     sprite_sheet.clip_draw(
         left,
         bottom,
         width,
         height,
-        SCREEN_WIDTH // 2,
+        x_position,
         SCREEN_HEIGHT // 2,
         width * DISPLAY_SCALE,
         height * DISPLAY_SCALE,
