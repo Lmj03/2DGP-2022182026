@@ -1,6 +1,7 @@
 """Sonic 스프라이트 애니메이션 뷰어."""
 
 from pathlib import Path
+from dataclasses import dataclass
 
 from pico2d import close_canvas, load_image, open_canvas
 
@@ -8,6 +9,22 @@ from pico2d import close_canvas, load_image, open_canvas
 SCREEN_WIDTH = 1200
 SCREEN_HEIGHT = 800
 SPRITE_PATH = Path(__file__).resolve().with_name("sonic-sprite.png")
+
+
+@dataclass(frozen=True)
+class Frame:
+    left: int
+    top: int
+    width: int
+    height: int
+
+
+@dataclass(frozen=True)
+class Animation:
+    name: str
+    frames: tuple[Frame, ...]
+    frame_delay: float
+    repeat_count: int = 5
 
 
 def main():
