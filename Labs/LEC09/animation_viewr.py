@@ -188,6 +188,8 @@ slide_animation = Animation(
         ((1, 29), (36, 65), (72, 110), (123, 161), (172, 210), (218, 255)),
     ),
     0.1,
+    movement_start_x=MOVEMENT_START_X,
+    movement_end_x=MOVEMENT_END_X,
 )
 
 fall_animation = Animation(
