@@ -18,6 +18,7 @@ from pico2d import (
 SCREEN_WIDTH = 1200
 SCREEN_HEIGHT = 800
 SPRITE_PATH = Path(__file__).resolve().with_name("sonic-sprite.png")
+SPRITE_WIDTH = 399
 SPRITE_HEIGHT = 525
 DISPLAY_SCALE = 4
 ANIMATION_PAUSE = 1.0
@@ -49,6 +50,22 @@ def make_row_frames(top: int, height: int, spans: tuple[tuple[int, int], ...]) -
 def source_rectangle(frame: Frame) -> tuple[int, int, int, int]:
     bottom = SPRITE_HEIGHT - frame.top - frame.height
     return frame.left, bottom, frame.width, frame.height
+
+
+def validate_animations(animations: tuple[Animation, ...]) -> None:
+    if not animations:
+        raise ValueError("등록된 애니메이션이 없습니다.")
+
+    for animation in animations:
+        if not animation.frames:
+            raise ValueError(f"프레임이 비어 있는 동작입니다: {animation.name}")
+        for frame in animation.frames:
+            if frame.width <= 0 or frame.height <= 0:
+                raise ValueError(f"프레임 크기가 잘못되었습니다: {animation.name}")
+            if frame.left < 0 or frame.top < 0:
+                raise ValueError(f"프레임 위치가 잘못되었습니다: {animation.name}")
+            if frame.left + frame.width > SPRITE_WIDTH or frame.top + frame.height > SPRITE_HEIGHT:
+                raise ValueError(f"프레임이 이미지 영역을 벗어났습니다: {animation.name}")
 
 
 def draw_frame(sprite_sheet, frame: Frame) -> None:
@@ -204,6 +221,7 @@ def main():
         if not SPRITE_PATH.is_file():
             raise FileNotFoundError(f"스프라이트 이미지를 찾을 수 없습니다: {SPRITE_PATH}")
         sprite_sheet = load_image(str(SPRITE_PATH))
+        validate_animations(ANIMATIONS)
         play_all_animations(sprite_sheet)
     finally:
         close_canvas()
