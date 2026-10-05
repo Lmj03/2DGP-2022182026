@@ -3,7 +3,7 @@
 from pathlib import Path
 from dataclasses import dataclass
 
-from pico2d import close_canvas, load_image, open_canvas
+from pico2d import clear_canvas, close_canvas, delay, load_image, open_canvas, update_canvas
 
 
 SCREEN_WIDTH = 1200
@@ -165,6 +165,10 @@ def main():
         if not SPRITE_PATH.is_file():
             raise FileNotFoundError(f"스프라이트 이미지를 찾을 수 없습니다: {SPRITE_PATH}")
         sprite_sheet = load_image(str(SPRITE_PATH))
+        clear_canvas()
+        draw_frame(sprite_sheet, ANIMATIONS[0].frames[0])
+        update_canvas()
+        delay(0.1)
     finally:
         close_canvas()
 
