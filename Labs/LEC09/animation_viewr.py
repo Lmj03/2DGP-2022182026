@@ -22,6 +22,8 @@ SPRITE_WIDTH = 399
 SPRITE_HEIGHT = 525
 DISPLAY_SCALE = 4
 ANIMATION_PAUSE = 1.0
+MOVEMENT_START_X = 120
+MOVEMENT_END_X = 1080
 
 
 @dataclass(frozen=True)
@@ -38,6 +40,8 @@ class Animation:
     frames: tuple[Frame, ...]
     frame_delay: float
     repeat_count: int = 5
+    movement_start_x: int | None = None
+    movement_end_x: int | None = None
 
 
 def make_row_frames(top: int, height: int, spans: tuple[tuple[int, int], ...]) -> tuple[Frame, ...]:
