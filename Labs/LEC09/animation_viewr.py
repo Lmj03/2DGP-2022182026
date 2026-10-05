@@ -3,7 +3,16 @@
 from pathlib import Path
 from dataclasses import dataclass
 
-from pico2d import clear_canvas, close_canvas, delay, load_image, open_canvas, update_canvas
+from pico2d import (
+    SDL_QUIT,
+    clear_canvas,
+    close_canvas,
+    delay,
+    get_events,
+    load_image,
+    open_canvas,
+    update_canvas,
+)
 
 
 SCREEN_WIDTH = 1200
@@ -56,24 +65,34 @@ def draw_frame(sprite_sheet, frame: Frame) -> None:
     )
 
 
-def play_animation_once(sprite_sheet, animation: Animation) -> None:
+def window_was_closed() -> bool:
+    return any(event.type == SDL_QUIT for event in get_events())
+
+
+def play_animation_once(sprite_sheet, animation: Animation) -> bool:
     for frame in animation.frames:
+        if window_was_closed():
+            return False
         clear_canvas()
         draw_frame(sprite_sheet, frame)
         update_canvas()
         delay(animation.frame_delay)
+    return True
 
 
-def play_animation(sprite_sheet, animation: Animation) -> None:
+def play_animation(sprite_sheet, animation: Animation) -> bool:
     for _ in range(animation.repeat_count):
-        play_animation_once(sprite_sheet, animation)
+        if not play_animation_once(sprite_sheet, animation):
+            return False
     delay(ANIMATION_PAUSE)
+    return True
 
 
 def play_all_animations(sprite_sheet) -> None:
     while True:
         for animation in ANIMATIONS:
-            play_animation(sprite_sheet, animation)
+            if not play_animation(sprite_sheet, animation):
+                return
 
 
 run_animation = Animation(
