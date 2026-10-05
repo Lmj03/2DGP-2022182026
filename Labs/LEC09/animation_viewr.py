@@ -210,6 +210,8 @@ walk_animation = Animation(
         ((1, 27), (31, 61), (64, 94), (99, 131), (136, 167), (176, 208), (217, 249), (254, 286)),
     ),
     0.12,
+    movement_start_x=MOVEMENT_START_X,
+    movement_end_x=MOVEMENT_END_X,
 )
 
 special_animation = Animation(
