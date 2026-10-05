@@ -10,6 +10,8 @@ SCREEN_WIDTH = 1200
 SCREEN_HEIGHT = 800
 SPRITE_PATH = Path(__file__).resolve().with_name("sonic-sprite.png")
 SPRITE_HEIGHT = 525
+DISPLAY_SCALE = 4
+ANIMATION_PAUSE = 1.0
 
 
 @dataclass(frozen=True)
@@ -32,6 +34,25 @@ def make_row_frames(top: int, height: int, spans: tuple[tuple[int, int], ...]) -
     return tuple(
         Frame(left, top, right - left + 1, height)
         for left, right in spans
+    )
+
+
+def source_rectangle(frame: Frame) -> tuple[int, int, int, int]:
+    bottom = SPRITE_HEIGHT - frame.top - frame.height
+    return frame.left, bottom, frame.width, frame.height
+
+
+def draw_frame(sprite_sheet, frame: Frame) -> None:
+    left, bottom, width, height = source_rectangle(frame)
+    sprite_sheet.clip_draw(
+        left,
+        bottom,
+        width,
+        height,
+        SCREEN_WIDTH // 2,
+        SCREEN_HEIGHT // 2,
+        width * DISPLAY_SCALE,
+        height * DISPLAY_SCALE,
     )
 
 
