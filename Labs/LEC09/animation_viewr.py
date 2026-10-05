@@ -65,7 +65,17 @@ jump_animation = Animation(
     0.15,
 )
 
-ANIMATIONS: tuple[Animation, ...] = (run_animation, action_animation, jump_animation)
+spin_animation = Animation(
+    "회전",
+    make_row_frames(
+        167,
+        33,
+        ((1, 29), (35, 63), (67, 96), (98, 128), (131, 159), (162, 190), (193, 222), (230, 260), (268, 297)),
+    ),
+    0.1,
+)
+
+ANIMATIONS: tuple[Animation, ...] = (run_animation, action_animation, jump_animation, spin_animation)
 
 
 def main():
