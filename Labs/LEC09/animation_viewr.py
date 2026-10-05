@@ -70,6 +70,12 @@ def play_animation(sprite_sheet, animation: Animation) -> None:
     delay(ANIMATION_PAUSE)
 
 
+def play_all_animations(sprite_sheet) -> None:
+    while True:
+        for animation in ANIMATIONS:
+            play_animation(sprite_sheet, animation)
+
+
 run_animation = Animation(
     "달리기",
     make_row_frames(
@@ -179,10 +185,7 @@ def main():
         if not SPRITE_PATH.is_file():
             raise FileNotFoundError(f"스프라이트 이미지를 찾을 수 없습니다: {SPRITE_PATH}")
         sprite_sheet = load_image(str(SPRITE_PATH))
-        clear_canvas()
-        draw_frame(sprite_sheet, ANIMATIONS[0].frames[0])
-        update_canvas()
-        delay(0.1)
+        play_all_animations(sprite_sheet)
     finally:
         close_canvas()
 
