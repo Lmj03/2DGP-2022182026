@@ -20,10 +20,14 @@ GROUND_PATH = RESOURCE_DIR / 'TUK_GROUND.png'
 CHARACTER_PATH = RESOURCE_DIR / 'animation_sheet.png'
 
 
-def handle_events(running):
+def handle_events(running, keys):
     for event in get_events():
         if event.type == SDL_QUIT:
             running = False
+        elif event.type == SDL_KEYDOWN and event.key in keys:
+            keys[event.key] = True
+        elif event.type == SDL_KEYUP and event.key in keys:
+            keys[event.key] = False
     return running
 
 
@@ -35,6 +39,12 @@ def main():
     x = CANVAS_WIDTH // 2
     y = CANVAS_HEIGHT // 2
     frame = 0
+    keys = {
+        SDLK_UP: False,
+        SDLK_DOWN: False,
+        SDLK_LEFT: False,
+        SDLK_RIGHT: False,
+    }
     while running:
         clear_canvas()
         ground.draw_to_fit(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT)
@@ -47,7 +57,7 @@ def main():
             y,
         )
         update_canvas()
-        running = handle_events(running)
+        running = handle_events(running, keys)
         frame = (frame + 1) % FRAME_COUNT
         delay(FRAME_DELAY)
     close_canvas()
