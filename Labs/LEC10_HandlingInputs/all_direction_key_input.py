@@ -48,7 +48,9 @@ def main():
     }
     while running:
         horizontal = int(keys[SDLK_RIGHT]) - int(keys[SDLK_LEFT])
+        vertical = int(keys[SDLK_UP]) - int(keys[SDLK_DOWN])
         x += horizontal * MOVE_SPEED
+        y += vertical * MOVE_SPEED
         clear_canvas()
         ground.draw_to_fit(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT)
         character.clip_draw(
