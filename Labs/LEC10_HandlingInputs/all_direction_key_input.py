@@ -28,6 +28,7 @@ def main():
     while running:
         clear_canvas()
         ground.draw_to_fit(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT)
+        character.clip_draw(0, 100, 100, 100, 400, 300)
         update_canvas()
         running = handle_events(running)
         delay(FRAME_DELAY)
