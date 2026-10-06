@@ -32,6 +32,12 @@ def handle_events(running, keys):
     return running
 
 
+def get_movement(keys):
+    horizontal = int(keys[SDLK_RIGHT]) - int(keys[SDLK_LEFT])
+    vertical = int(keys[SDLK_UP]) - int(keys[SDLK_DOWN])
+    return horizontal, vertical
+
+
 def main():
     open_canvas(CANVAS_WIDTH, CANVAS_HEIGHT)
     ground = load_image(str(GROUND_PATH))
@@ -48,8 +54,7 @@ def main():
         SDLK_RIGHT: False,
     }
     while running:
-        horizontal = int(keys[SDLK_RIGHT]) - int(keys[SDLK_LEFT])
-        vertical = int(keys[SDLK_UP]) - int(keys[SDLK_DOWN])
+        horizontal, vertical = get_movement(keys)
         if horizontal > 0:
             facing_direction = 1
         elif horizontal < 0:
