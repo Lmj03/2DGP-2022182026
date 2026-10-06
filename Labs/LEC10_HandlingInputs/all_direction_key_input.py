@@ -25,6 +25,9 @@ def main():
     ground = load_image(str(GROUND_PATH))
     running = True
     while running:
+        clear_canvas()
+        ground.draw_to_fit(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT)
+        update_canvas()
         running = handle_events(running)
         delay(FRAME_DELAY)
     close_canvas()
