@@ -6,6 +6,8 @@ from pico2d import *
 CANVAS_WIDTH = 800
 CANVAS_HEIGHT = 600
 FRAME_DELAY = 0.05
+FRAME_WIDTH = 100
+FRAME_HEIGHT = 100
 
 
 RESOURCE_DIR = Path(__file__).resolve().parent
@@ -30,7 +32,7 @@ def main():
     while running:
         clear_canvas()
         ground.draw_to_fit(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT)
-        character.clip_draw(0, 100, 100, 100, x, y)
+        character.clip_draw(0, 100, FRAME_WIDTH, FRAME_HEIGHT, x, y)
         update_canvas()
         running = handle_events(running)
         delay(FRAME_DELAY)
