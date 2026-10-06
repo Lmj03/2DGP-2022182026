@@ -22,6 +22,7 @@ def handle_events(running):
 
 def main():
     open_canvas(CANVAS_WIDTH, CANVAS_HEIGHT)
+    ground = load_image(str(GROUND_PATH))
     running = True
     while running:
         running = handle_events(running)
