@@ -56,11 +56,12 @@ def main():
             facing_direction = -1
         x += horizontal * MOVE_SPEED
         y += vertical * MOVE_SPEED
+        idle_row = IDLE_RIGHT_ROW if facing_direction > 0 else IDLE_LEFT_ROW
         clear_canvas()
         ground.draw_to_fit(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT)
         character.clip_draw(
             frame * FRAME_WIDTH,
-            IDLE_RIGHT_ROW,
+            idle_row,
             FRAME_WIDTH,
             FRAME_HEIGHT,
             x,
