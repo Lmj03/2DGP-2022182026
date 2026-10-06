@@ -34,12 +34,21 @@ def main():
     running = True
     x = CANVAS_WIDTH // 2
     y = CANVAS_HEIGHT // 2
+    frame = 0
     while running:
         clear_canvas()
         ground.draw_to_fit(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT)
-        character.clip_draw(0, 100, FRAME_WIDTH, FRAME_HEIGHT, x, y)
+        character.clip_draw(
+            frame * FRAME_WIDTH,
+            IDLE_RIGHT_ROW,
+            FRAME_WIDTH,
+            FRAME_HEIGHT,
+            x,
+            y,
+        )
         update_canvas()
         running = handle_events(running)
+        frame = (frame + 1) % FRAME_COUNT
         delay(FRAME_DELAY)
     close_canvas()
 
