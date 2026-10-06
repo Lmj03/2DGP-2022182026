@@ -102,7 +102,14 @@ def main():
                 IDLE_RIGHT_ROW if facing_direction > 0 else IDLE_LEFT_ROW
             )
         clear_canvas()
-        ground.draw_to_fit(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT)
+        ground.clip_draw(
+            (ground.w - CANVAS_WIDTH) // 2,
+            (ground.h - CANVAS_HEIGHT) // 2,
+            CANVAS_WIDTH,
+            CANVAS_HEIGHT,
+            CANVAS_WIDTH // 2,
+            CANVAS_HEIGHT // 2,
+        )
         draw_character(character, x, y, frame, animation_row)
         update_canvas()
         running = handle_events(running, keys)
