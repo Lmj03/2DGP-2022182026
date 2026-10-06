@@ -49,10 +49,19 @@ def draw_character(character, x, y, frame, animation_row):
     )
 
 
+def load_resources():
+    missing_paths = [
+        path for path in (GROUND_PATH, CHARACTER_PATH) if not path.exists()
+    ]
+    if missing_paths:
+        missing_files = ', '.join(str(path) for path in missing_paths)
+        raise FileNotFoundError(f'이미지 파일을 찾을 수 없습니다: {missing_files}')
+    return load_image(str(GROUND_PATH)), load_image(str(CHARACTER_PATH))
+
+
 def main():
     open_canvas(CANVAS_WIDTH, CANVAS_HEIGHT)
-    ground = load_image(str(GROUND_PATH))
-    character = load_image(str(CHARACTER_PATH))
+    ground, character = load_resources()
     running = True
     x = CANVAS_WIDTH // 2
     y = CANVAS_HEIGHT // 2
