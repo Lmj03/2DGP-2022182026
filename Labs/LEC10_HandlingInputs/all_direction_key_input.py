@@ -63,7 +63,12 @@ def load_resources():
 
 def main():
     open_canvas(CANVAS_WIDTH, CANVAS_HEIGHT)
-    ground, character = load_resources()
+    try:
+        ground, character = load_resources()
+    except FileNotFoundError as error:
+        print(error)
+        close_canvas()
+        return
     running = True
     x = CANVAS_WIDTH // 2
     y = CANVAS_HEIGHT // 2
