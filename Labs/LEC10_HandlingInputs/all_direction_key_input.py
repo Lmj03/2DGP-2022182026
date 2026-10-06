@@ -1,5 +1,9 @@
+from pico2d import *
+
+
 def main():
-    pass
+    open_canvas()
+    close_canvas()
 
 
 if __name__ == '__main__':
