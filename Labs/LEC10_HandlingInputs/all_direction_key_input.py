@@ -38,6 +38,17 @@ def get_movement(keys):
     return horizontal, vertical
 
 
+def draw_character(character, x, y, frame, animation_row):
+    character.clip_draw(
+        frame * FRAME_WIDTH,
+        animation_row,
+        FRAME_WIDTH,
+        FRAME_HEIGHT,
+        x,
+        y,
+    )
+
+
 def main():
     open_canvas(CANVAS_WIDTH, CANVAS_HEIGHT)
     ground = load_image(str(GROUND_PATH))
@@ -70,14 +81,7 @@ def main():
         animation_row = idle_row
         clear_canvas()
         ground.draw_to_fit(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT)
-        character.clip_draw(
-            frame * FRAME_WIDTH,
-            animation_row,
-            FRAME_WIDTH,
-            FRAME_HEIGHT,
-            x,
-            y,
-        )
+        draw_character(character, x, y, frame, animation_row)
         update_canvas()
         running = handle_events(running, keys)
         frame = (frame + 1) % FRAME_COUNT
