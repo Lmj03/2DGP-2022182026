@@ -40,6 +40,7 @@ def main():
     x = CANVAS_WIDTH // 2
     y = CANVAS_HEIGHT // 2
     frame = 0
+    facing_direction = 1
     keys = {
         SDLK_UP: False,
         SDLK_DOWN: False,
@@ -49,6 +50,10 @@ def main():
     while running:
         horizontal = int(keys[SDLK_RIGHT]) - int(keys[SDLK_LEFT])
         vertical = int(keys[SDLK_UP]) - int(keys[SDLK_DOWN])
+        if horizontal > 0:
+            facing_direction = 1
+        elif horizontal < 0:
+            facing_direction = -1
         x += horizontal * MOVE_SPEED
         y += vertical * MOVE_SPEED
         clear_canvas()
