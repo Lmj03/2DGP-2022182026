@@ -25,10 +25,12 @@ def main():
     ground = load_image(str(GROUND_PATH))
     character = load_image(str(CHARACTER_PATH))
     running = True
+    x = CANVAS_WIDTH // 2
+    y = CANVAS_HEIGHT // 2
     while running:
         clear_canvas()
         ground.draw_to_fit(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT)
-        character.clip_draw(0, 100, 100, 100, 400, 300)
+        character.clip_draw(0, 100, 100, 100, x, y)
         update_canvas()
         running = handle_events(running)
         delay(FRAME_DELAY)
