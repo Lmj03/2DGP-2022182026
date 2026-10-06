@@ -6,6 +6,7 @@ from pico2d import *
 CANVAS_WIDTH = 800
 CANVAS_HEIGHT = 600
 FRAME_DELAY = 0.05
+MOVE_SPEED = 5
 FRAME_WIDTH = 100
 FRAME_HEIGHT = 100
 FRAME_COUNT = 8
@@ -46,6 +47,8 @@ def main():
         SDLK_RIGHT: False,
     }
     while running:
+        horizontal = int(keys[SDLK_RIGHT]) - int(keys[SDLK_LEFT])
+        x += horizontal * MOVE_SPEED
         clear_canvas()
         ground.draw_to_fit(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT)
         character.clip_draw(
