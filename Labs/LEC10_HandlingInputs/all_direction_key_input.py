@@ -1,6 +1,11 @@
 from pico2d import *
 
 
+CANVAS_WIDTH = 800
+CANVAS_HEIGHT = 600
+FRAME_DELAY = 0.05
+
+
 def handle_events(running):
     for event in get_events():
         if event.type == SDL_QUIT:
@@ -9,11 +14,11 @@ def handle_events(running):
 
 
 def main():
-    open_canvas()
+    open_canvas(CANVAS_WIDTH, CANVAS_HEIGHT)
     running = True
     while running:
         running = handle_events(running)
-        delay(0.05)
+        delay(FRAME_DELAY)
     close_canvas()
 
 
