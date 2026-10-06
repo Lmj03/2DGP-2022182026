@@ -88,8 +88,14 @@ def main():
         half_height = FRAME_HEIGHT // 2
         x = max(half_width, min(CANVAS_WIDTH - half_width, x))
         y = max(half_height, min(CANVAS_HEIGHT - half_height, y))
-        idle_row = IDLE_RIGHT_ROW if facing_direction > 0 else IDLE_LEFT_ROW
-        animation_row = idle_row
+        if is_moving:
+            animation_row = (
+                MOVE_RIGHT_ROW if facing_direction > 0 else MOVE_LEFT_ROW
+            )
+        else:
+            animation_row = (
+                IDLE_RIGHT_ROW if facing_direction > 0 else IDLE_LEFT_ROW
+            )
         clear_canvas()
         ground.draw_to_fit(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT)
         draw_character(character, x, y, frame, animation_row)
