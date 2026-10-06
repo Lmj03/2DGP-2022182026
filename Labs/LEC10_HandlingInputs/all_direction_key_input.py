@@ -6,7 +6,8 @@ from pico2d import *
 CANVAS_WIDTH = 1280
 CANVAS_HEIGHT = 1024
 FRAME_DELAY = 0.05
-MOVE_SPEED = 4
+MOVE_SPEED = 8
+BOUNDARY_MARGIN = 25
 FRAME_WIDTH = 100
 FRAME_HEIGHT = 100
 FRAME_COUNT = 8
@@ -89,10 +90,8 @@ def main():
         x += horizontal * MOVE_SPEED
         y += vertical * MOVE_SPEED
         is_moving = horizontal != 0 or vertical != 0
-        half_width = FRAME_WIDTH // 2
-        half_height = FRAME_HEIGHT // 2
-        x = max(half_width, min(CANVAS_WIDTH - half_width, x))
-        y = max(half_height, min(CANVAS_HEIGHT - half_height, y))
+        x = max(BOUNDARY_MARGIN, min(CANVAS_WIDTH - BOUNDARY_MARGIN, x))
+        y = max(BOUNDARY_MARGIN, min(CANVAS_HEIGHT - BOUNDARY_MARGIN, y))
         if is_moving:
             animation_row = (
                 MOVE_RIGHT_ROW if facing_direction > 0 else MOVE_LEFT_ROW
