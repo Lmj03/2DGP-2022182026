@@ -57,6 +57,10 @@ def main():
         x += horizontal * MOVE_SPEED
         y += vertical * MOVE_SPEED
         is_moving = horizontal != 0 or vertical != 0
+        half_width = FRAME_WIDTH // 2
+        half_height = FRAME_HEIGHT // 2
+        x = max(half_width, min(CANVAS_WIDTH - half_width, x))
+        y = max(half_height, min(CANVAS_HEIGHT - half_height, y))
         idle_row = IDLE_RIGHT_ROW if facing_direction > 0 else IDLE_LEFT_ROW
         animation_row = idle_row
         clear_canvas()
